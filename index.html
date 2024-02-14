@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevator Control System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        #elevator {
+            width: 50px;
+            height: 100px;
+            background-color: #3498db;
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            transition: top 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Elevator Control System</h1>
+
+<button onclick="requestElevator(1)">Floor 1</button>
+<button onclick="requestElevator(2)">Floor 2</button>
+<button onclick="requestElevator(3)">Floor 3</button>
+
+<div id="elevator"></div>
+
+<script>
+    let currentFloor = 1;
+
+    function requestElevator(floor) {
+        moveElevator(floor);
+    }
+
+    function moveElevator(floor) {
+        const elevator = document.getElementById('elevator');
+        const targetPosition = 200 + (floor - 1) * 100; // Adjust based on the floor height
+
+        elevator.style.top = targetPosition + 'px';
+        currentFloor = floor;
+    }
+</script>
+
+</body>
+</html>
